@@ -66,3 +66,33 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+it("renders without crashing", () => {
+  const app = rtl.render(<App />);
+  console.log(app.debug());
+});
+
+My intent with this test was to make sure the app rendered ok.
+
+it("renders players in app", () => {
+  const app = rtl.render(<App />);
+  app.getByText(/players/i);
+  console.log(app.debug());
+});
+
+My intent with this test was to make sure that the players rendered ok.
+
+it("renders player input", () => {
+  const playerInput = rtl.render(<PlayerForm />);
+  playerInput.getByTestId(/player/i);
+  console.log(playerInput.debug());
+});
+
+My intent with this test was to make sure that it renders the players input
+
+it("renders country input", () => {
+  const playerInput = rtl.render(<PlayerForm />);
+  playerInput.getByTestId(/country/i);
+  console.log(playerInput.debug());
+});
+
+My intent with this test was to make sure that it rendered the country input
